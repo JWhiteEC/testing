@@ -9,5 +9,10 @@ echo Install iOS platform
 phonegap platform add ios@latest
 echo Build iOS
 phonegap build ios
+echo Artifacts
+find . -name "*.app"
+find . -name "*.ipa"
 echo Run iOS
-phonegap run ios
+cordova run ios --list
+phonegap run ios --target="iPhone-XR, 13.0"
+
