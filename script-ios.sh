@@ -5,4 +5,9 @@ npm install -g phonegap@8.2.2
 npm install -g ios-sim
 phonegap create appsrc --template hello-world
 cd appsrc
+echo Install iOS platform
+phonegap platform add ios@latest
+echo Build iOS
+phonegap build ios
+echo Run iOS
 phonegap run ios
