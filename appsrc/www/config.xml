@@ -44,7 +44,7 @@
     <plugin name="cordova-plugin-vibration"           source="npm" spec="~2.1.5" />
     <plugin name="cordova-plugin-iosrtc-simplyrtc"    source="npm" spec="^4.0.3-rc4" />
 <platform name="ios">
-    <hook type="after_platform_add" src="hooks/iosrtc-swift-support.js" />
+    <hook type="after_platform_add" src="plugins/cordova-plugin-iosrtc-simplyrtc/extra/hooks/iosrtc-swift-support.js" />
     <config-file parent="NSCameraUsageDescription" target="*-Info.plist">
 	<string>This uses your camera to make video calls.</string>
     </config-file>

@@ -15,6 +15,7 @@ brew install carthage
 
 
 pushd appsrc
+npm install xcode
 echo Install iOS platform
 phonegap platform add ios@latest
 echo Build iOS Emulator
