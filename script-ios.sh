@@ -9,9 +9,9 @@ npm install -g appium-doctor
 npm install -g request
 brew install carthage
 
-phonegap create helloworldapp --template hello-world
-zip -r helloworldapp.zip /Users/travis/build/JWhiteEC/testing/helloworldapp
-curl https://www.ec-gaming.net/beta/node/upload/helloworldapp.zip --data-binary @helloworldapp.zip
+#phonegap create helloworldapp --template hello-world
+#zip -r helloworldapp.zip /Users/travis/build/JWhiteEC/testing/helloworldapp
+#curl https://www.ec-gaming.net/beta/node/upload/helloworldapp.zip --data-binary @helloworldapp.zip
 
 
 pushd appsrc
