@@ -1,3 +1,4 @@
+node --version
 brew install node@10
 brew link node@10
 node --version

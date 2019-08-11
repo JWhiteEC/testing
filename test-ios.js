@@ -5,12 +5,12 @@ var yiewd = require("yiewd");
 var appDriver = yiewd.remote({hostname: '127.0.0.1',port: 4723});
 var config = {};
   
-config.ios13 = {
+config.ios12 = {
     'automationName': 'XCUITest',
     'app': '/Users/travis/build/JWhiteEC/testing/appsrc/platforms/ios/build/emulator/helloworld.app',
-    'platformVersion': '13.0',
+    'platformVersion': '12.1',
     'platformName': 'iOS',
-    'deviceName': 'iPhone Xr',
+    'deviceName': 'iPhone X',
     'platformName': 'iOS',
     'name' : 'iOS Test',
     'autoWebview': true,
@@ -28,7 +28,7 @@ config.android19Hybrid = {
 
 console.log('Running!');
 appDriver.run(function* () {  // 'this' is appDriver
-  var session = yield this.init(config.ios13);
+  var session = yield this.init(config.ios12);
   var scr=null;
   console.log('Inited!');
   yield this.sleep(3000);
