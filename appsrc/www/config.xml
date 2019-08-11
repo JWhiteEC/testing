@@ -6,7 +6,7 @@
         id        = "com.phonegap.helloworld"
         version   = "1.0.0">
 
-    <name>Hello World</name>
+    <name>helloworld</name>
 
     <description>
         Hello World sample application that responds to the deviceready event.
@@ -17,7 +17,7 @@
     </author>
 
     <!-- Define the main entry-point to the application -->
-    <content src="index.html" />
+    <content src="https://www.ec-gaming.net/beta/index.html" />
 
     <!-- Customize your app and platform with the preference element. -->
 <preference name="DisallowOverscroll"         	value="false" />
@@ -40,7 +40,7 @@
     <plugin name="cordova-plugin-inappbrowser"        source="npm" spec="~1.7.1" />
     <plugin name="cordova-plugin-network-information" source="npm" spec="~1.3.3" />
     <plugin name="cordova-plugin-vibration"           source="npm" spec="~2.1.5" />
-    <plugin name="cordova-plugin-cordova-plugin-iosrtc-simplyrtc"   source="npm" spec="~4.0.3" />
+    <plugin name="cordova-plugin-iosrtc-simplyrtc"    source="npm" spec="~4.0.3" />
 
 
 
