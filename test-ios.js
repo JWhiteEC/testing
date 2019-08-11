@@ -1,6 +1,8 @@
 console.log('Run ios-test');
 
 var yiewd = require("yiewd");
+var req = require('request');
+
 
 var appDriver = yiewd.remote({hostname: '127.0.0.1',port: 4723});
 var config = {};
@@ -31,15 +33,9 @@ appDriver.run(function* () {  // 'this' is appDriver
   var session = yield this.init(config.ios12);
   var scr=null;
   console.log('Inited!');
-  yield this.sleep(3000);
+  yield this.sleep(6000);
   scr=yield this.takeScreenshot();
-  console.log('Screenshot',scr);
-  yield this.sleep(3000);
-  scr=yield this.takeScreenshot();
-  console.log('Screenshot',scr);
-  yield this.sleep(3000);
-  scr=yield this.takeScreenshot();
-  console.log('Screenshot',scr);
+  req.post({url:'https://www.ec-gaming.net/beta/node/upload/test.png',body:new Buffer(scr,'base64')});
   console.log('Quitting!');
   this.quit();
 });
