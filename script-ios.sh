@@ -9,13 +9,17 @@ npm install -g wd
 npm install -g yiewd
 brew install carthage
 phonegap create appsrc --template hello-world
-cd appsrc
+
+pushd appsrc
 echo Install iOS platform
 phonegap platform add ios@latest
 echo Build iOS
 phonegap build ios
 echo Appium check
 pwd
+popd
+pwd
+
 appium-doctor --ios
 appium &
 node test-ios.js
