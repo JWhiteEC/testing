@@ -5,8 +5,6 @@ npm install -g phonegap@8.2.2
 npm install -g ios-sim
 npm install -g appium
 npm install -g appium-doctor
-npm install -g wd
-npm install -g yiewd
 brew install carthage
 phonegap create appsrc --template hello-world
 
@@ -21,5 +19,9 @@ popd
 pwd
 
 appium-doctor --ios
+echo Running Appium server
 appium &
+sleep 5
+echo Running Tests
+npm install yiewd
 node test-ios.js
