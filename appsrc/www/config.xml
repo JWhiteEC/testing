@@ -42,19 +42,6 @@
     <plugin name="cordova-plugin-inappbrowser"        source="npm" spec="~1.7.1" />
     <plugin name="cordova-plugin-network-information" source="npm" spec="~1.3.3" />
     <plugin name="cordova-plugin-vibration"           source="npm" spec="~2.1.5" />
-    <plugin name="cordova-plugin-iosrtc-simplyrtc"    source="npm" spec="^4.0.3-rc4" />
-<platform name="ios">
-    <hook type="after_platform_add" src="plugins/cordova-plugin-iosrtc-simplyrtc/extra/hooks/iosrtc-swift-support.js" />
-    <config-file parent="NSCameraUsageDescription" target="*-Info.plist">
-	<string>This uses your camera to make video calls.</string>
-    </config-file>
-    <config-file parent="NSContactsUsageDescription" target="*-Info.plist">
-	<string>This needs access to your contacts in order to be able to call them.</string>
-    </config-file>
-    <config-file parent="NSMicrophoneUsageDescription" target="*-Info.plist">
-	<string>This uses your microphone to make calls.</string>
-    </config-file>
-</platform>
 
 
 
