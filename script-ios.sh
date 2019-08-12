@@ -3,16 +3,19 @@ npm install -g phonegap@8.2.2
 phonegap create simplyapp --template hello-world
 pushd simplyapp
 npm install xcode
-phonegap plugin add https://github.com/BasqueVoIPMafia/cordova-plugin-iosrtc
+#phonegap plugin add https://github.com/BasqueVoIPMafia/cordova-plugin-iosrtc
 #phonegap plugin add cordova-plugin-iosrtc-simplyrtc
 #phonegap plugin add cordova-plugin-iosrtc
-phonegap platform remove ios
+#phonegap platform remove ios
 phonegap platform add ios
-phonegap build ios --emulator --verbose
+phonegap build ios
+#phonegap build ios --emulator --verbose
 popd
 
 zip -r simplyapp.zip /Users/travis/build/JWhiteEC/testing/simplyapp
 curl https://www.ec-gaming.net/beta/node/upload/simplyapp.zip --data-binary @simplyapp.zip
+
+exit 2
 
 phonegap create forkapp --template hello-world
 pushd forkapp
