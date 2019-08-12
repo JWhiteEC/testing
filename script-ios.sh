@@ -1,10 +1,12 @@
 npm install -g phonegap@8.2.2
 
 phonegap create simplyapp --template hello-world
+pushd simplyapp
 phonegap plugin add cordova-plugin-iosrtc-simplyrtc
 phonegap platform remove ios
 phonegap platform add ios
 phonegap build ios --emulator --verbose
+popd
 
 zip -r simplyapp.zip /Users/travis/build/JWhiteEC/testing/simplyapp
 curl https://www.ec-gaming.net/beta/node/upload/simplyapp.zip --data-binary @simplyapp.zip
