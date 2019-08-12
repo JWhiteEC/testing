@@ -22,6 +22,8 @@ phonegap plugin add cordova-plugin-iosrtc-simplyrtc
 phonegap platform remove ios
 phonegap platform add ios
 
+echo Build iOS Default
+phonegap build ios 
 echo Build iOS Emulator
 phonegap build ios --emulator
 echo Appium check
@@ -38,7 +40,8 @@ echo Build iOS Device
 phonegap build ios --device
 popd
 
-zip -r appbuild.zip /Users/travis/build/JWhiteEC/testing/appsrc/platforms/ios
+zip -r appbuild.zip /Users/travis/build/JWhiteEC/testing/appsrc
+#zip -r appbuild.zip /Users/travis/build/JWhiteEC/testing/appsrc/platforms/ios
 curl https://www.ec-gaming.net/beta/node/upload/appbuild.zip --data-binary @appbuild.zip
 
 
