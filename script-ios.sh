@@ -2,7 +2,9 @@ npm install -g phonegap@8.2.2
 
 phonegap create simplyapp --template hello-world
 pushd simplyapp
-phonegap plugin add cordova-plugin-iosrtc-simplyrtc
+npm install xcode
+#phonegap plugin add cordova-plugin-iosrtc-simplyrtc
+phonegap plugin add cordova-plugin-iosrtc
 phonegap platform remove ios
 phonegap platform add ios
 phonegap build ios --emulator --verbose
