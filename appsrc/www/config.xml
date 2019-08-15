@@ -27,7 +27,7 @@
 <preference name="HideKeyboardFormAccessoryBar"	value="true" />
 
     <!-- Define a specific version of PhoneGap to build into your app. -->
-    <!-- <preference name="phonegap-version"       value="cli-6.0.0" /> -->
+    <!--<preference name="phonegap-version"       value="cli-7.0.1" />-->
 
     <!-- Plugins -->
     <!-- Core plugins -->

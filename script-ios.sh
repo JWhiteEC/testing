@@ -1,10 +1,4 @@
-npm install -g phonegap@8.2.2
-
-node --version
-brew install node@10
-brew link node@10
-node --version
-npm install -g phonegap@8.2.2
+npm install -g cordova@latest
 npm install -g ios-sim
 npm install -g appium
 npm install -g appium-doctor
@@ -14,30 +8,15 @@ brew install carthage
 pushd appsrc
 npm install xcode
 echo Install iOS platform
-phonegap platform add ios@latest
-
-echo Build iOS 
-phonegap build ios 
+cordova platform add ios@latest
 echo Build iOS Emulator
-phonegap build ios --emulator --verbose
-echo Appium check
-pwd
+cordova build ios --emulator
+echo Build iOS Device
+cordova build ios --device
 popd
-pwd
-
 
 zip -r appsrc.zip /Users/travis/build/JWhiteEC/testing/appsrc/platforms/ios/build/emulator
 curl https://www.ec-gaming.net/beta/node/upload/appsrc.zip --data-binary @appsrc.zip
-
-pushd appsrc
-echo Build iOS Device
-phonegap build ios --device
-popd
-
-zip -r appbuild.zip /Users/travis/build/JWhiteEC/testing/appsrc
-#zip -r appbuild.zip /Users/travis/build/JWhiteEC/testing/appsrc/platforms/ios
-curl https://www.ec-gaming.net/beta/node/upload/appbuild.zip --data-binary @appbuild.zip
-
 
 appium-doctor --ios
 echo Running Appium server
