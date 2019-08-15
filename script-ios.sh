@@ -1,14 +1,15 @@
-npm install -g cordova@latest
+npm install -g cordova
 npm install -g ios-sim
 npm install -g appium
 npm install -g appium-doctor
 npm install -g request
+npm install -g glob
 brew install carthage
 
 pushd appsrc
 npm install xcode
 echo Install iOS platform
-cordova platform add ios@latest
+cordova platform add ios
 echo Build iOS Emulator
 cordova build ios --emulator
 echo Build iOS Device
