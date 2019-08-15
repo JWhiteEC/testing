@@ -7,6 +7,7 @@ npm install -g glob
 brew install carthage
 
 pushd appsrc
+mkdir www plugins platforms hooks
 npm install xcode
 echo Install iOS platform
 cordova platform add ios
