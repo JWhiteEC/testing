@@ -9,7 +9,7 @@ npm install xcode
 echo Install iOS platform
 cordova platform add ios@latest
 echo Build iOS Emulator
-cordova build ios --emulator
+cordova build ios --emulator --verbose
 echo Build iOS Device
 cordova build ios --device
 popd
