@@ -9,7 +9,7 @@ npm install xcode
 echo Install iOS platform
 cordova platform add ios@latest
 echo Build iOS Emulator
-cordova build ios --emulator --verbose --buildFlag='-UseModernBuildSystem=0'
+cordova build ios --emulator --verbose --buildFlag='BUILD_ACTIVE_RESOURCES_ONLY=NO' --buildFlag='ENABLE_ONLY_ACTIVE_RESOURCES=NO'
 echo Build iOS Device
 cordova build ios --device
 popd
