@@ -2,10 +2,12 @@ matrix:
   include:
     - language: objective-c
       os: osx
-      osx_image: xcode10.2
+      osx_image:
+        - xcode8
+        - xcode10.2
       cache:
         directories:
-        - Carthage
+          - Carthage
       before_script:
       script:
         - ./script-ios.sh

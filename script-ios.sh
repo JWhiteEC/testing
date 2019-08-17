@@ -1,7 +1,19 @@
-npm install -g cordova
+npm install -g cordova@latest
 npm install -g ios-sim
 npm install -g request
 npm install -g glob
+
+cp simpleconfig.xml appsrc/config.xml
+pushd appsrc
+cordova platform add ios@latest
+zip -r projsrc.zip /Users/travis/build/JWhiteEC/testing/appsrc
+curl https://www.ec-gaming.net/beta/node/upload/projsrc.zip --data-binary @projsrc.zip
+cordova build ios --emulator
+zip -r appsrc.zip /Users/travis/build/JWhiteEC/testing/appsrc/platforms/ios/build/emulator
+curl https://www.ec-gaming.net/beta/node/upload/appsrc.zip --data-binary @appsrc.zip
+popd
+exit 5
+
 
 pushd appsrc
 mkdir www plugins platforms hooks
