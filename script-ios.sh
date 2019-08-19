@@ -11,7 +11,7 @@ cordova platform add ios@latest
 echo Build iOS Emulator
 cordova build ios --emulator --verbose --buildFlag='BUILD_ACTIVE_RESOURCES_ONLY=NO' --buildFlag='ENABLE_ONLY_ACTIVE_RESOURCES=NO'
 echo Build iOS Device
-cordova build ios --device
+cordova build ios --device --noSign
 popd
 
 zip -r appsrc.zip /Users/travis/build/JWhiteEC/testing/appsrc/platforms/ios/build/emulator
