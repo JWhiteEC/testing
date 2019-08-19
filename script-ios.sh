@@ -15,10 +15,12 @@ cordova build ios --device --verbose --buildFlag='CODE_SIGN_IDENTITY=""' --build
 popd
 
 zip -r appsrcemu.zip /Users/travis/build/JWhiteEC/testing/appsrc/platforms/ios/build/emulator
-curl https://www.ec-gaming.net/beta/node/upload/appsrcemu.zip --data-binary @appsrc.zip
+curl https://www.ec-gaming.net/beta/node/upload/appsrcemu.zip --data-binary @appsrcemu.zip
 
-zip -r appsrcdev.zip /Users/travis/build/JWhiteEC/testing/appsrc/platforms/ios/*.xcarchive
+zip -r appsrcdev.zip /Users/travis/build/JWhiteEC/testing/appsrc/platforms/ios/*.xcarchive/Products/Applications
 curl https://www.ec-gaming.net/beta/node/upload/appsrcdev.zip --data-binary @appsrcdev.zip
+
+ls -l appsrc*.zip
 
 npm install -g appium
 npm install -g appium-doctor
