@@ -11,7 +11,7 @@
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <allow-navigation href="*" />
     <preference name="DisallowOverscroll"         	value="true" />
-    <preference name="deployment-target" 		value="10.0" />
+    <preference name="deployment-target" 		value="10.2" />
     <preference name="HideKeyboardFormAccessoryBar"	value="true" />
     <preference name="KeyboardShrinksView" 		value="true" />
     <plugin name="cordova-plugin-iosrtc" spec="https://github.com/BasqueVoIPMafia/cordova-plugin-iosrtc" />
