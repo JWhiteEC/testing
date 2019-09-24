@@ -14,10 +14,10 @@ echo Build iOS Device
 cordova build ios --device --verbose --buildFlag='ENABLE_BITCODE="NO"' --buildFlag='CODE_SIGN_IDENTITY=""' --buildFlag='CODE_SIGNING_REQUIRED="NO"' --buildFlag='CODE_SIGN_ENTITLEMENTS=""' --buildFlag='CODE_SIGNING_ALLOWED="NO"'
 popd
 
-zip -r appsrcemu.zip /Users/travis/build/JWhiteEC/testing/appsrc/platforms/ios/build/emulator
+zip -r appsrcemu.zip /Users/travis/build/JWhiteEC/testing/appsrc/platforms/ios/build/emulator /Users/travis/build/JWhiteEC/testing/appsrc/platforms/ios/build/emulator/helloworld.app.dSYM
 curl https://www.ec-gaming.net/beta/node/upload/appsrcemu.zip --data-binary @appsrcemu.zip
 
-zip -r appsrcdev.zip /Users/travis/build/JWhiteEC/testing/appsrc/platforms/ios/*.xcarchive/Products/Applications /Users/travis/build/JWhiteEC/testing/appsrc/platforms/ios/*.xcarchive/Info.plist /Users/travis/build/JWhiteEC/testing/appsrc/platforms/ios/exportOptions.plist
+zip -r appsrcdev.zip /Users/travis/build/JWhiteEC/testing/appsrc/platforms/ios/*.xcarchive/Products/Applications /Users/travis/build/JWhiteEC/testing/appsrc/platforms/ios/*.xcarchive/Info.plist /Users/travis/build/JWhiteEC/testing/appsrc/platforms/ios/exportOptions.plist /Users/travis/build/JWhiteEC/testing/appsrc/platforms/ios/build/device/helloworld.app.dSYM
 curl https://www.ec-gaming.net/beta/node/upload/appsrcdev.zip --data-binary @appsrcdev.zip
 
 ls -l appsrc*.zip
