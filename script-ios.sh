@@ -22,15 +22,14 @@ curl https://www.ec-gaming.net/beta/node/upload/appsrcdev.zip --data-binary @app
 
 ls -l appsrc*.zip
 
-npm install -g appium
-npm install -g appium-doctor
-brew install carthage
-
-appium-doctor --ios
-echo Running Appium server
-appium &
-sleep 5
-echo Running Tests
-npm install yiewd
-node test-ios.js
+#npm install -g appium
+#npm install -g appium-doctor
+#brew install carthage
+#appium-doctor --ios
+#echo Running Appium server
+#appium &
+#sleep 5
+#echo Running Tests
+#npm install yiewd
+#node test-ios.js
 
