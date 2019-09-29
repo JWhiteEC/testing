@@ -15,41 +15,13 @@ function addtests(infile,outfile,inscheme,outscheme){
 
 	console.log('Root',ROOT_ID,'Target',TARGET_ID,'Product',PRODUCT_REF,'Name',PRODUCT_NAME,'Debug',DEBUG_BASE);
 	var BUILD = `
-                        baseConfigurationReference = ${DEBUG_BASE} /* build-debug.xcconfig */;
                         buildSettings = {
-                                ALWAYS_SEARCH_USER_PATHS = NO;
-                                ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-                                CLANG_ENABLE_MODULES = YES;
-                                CLANG_ENABLE_OBJC_ARC = YES;
-                                COPY_PHASE_STRIP = NO;
-                                GCC_DYNAMIC_NO_PIC = NO;
-                                GCC_OPTIMIZATION_LEVEL = 0;
-                                GCC_PRECOMPILE_PREFIX_HEADER = YES;
-                                GCC_THUMB_SUPPORT = NO;
-                                GCC_VERSION = "";
-                                IPHONEOS_DEPLOYMENT_TARGET = "10.2";
-                                LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-                                LIBRARY_SEARCH_PATHS = (
-                                        "$(inherited)",
-                                );
                                 PRODUCT_NAME = "$(TARGET_NAME)";
-                                TARGETED_DEVICE_FAMILY = "1,2";
-                                ENABLE_BITCODE = "NO";
-                                SWIFT_VERSION = "4.2";
                                 INFOPLIST_FILE = uitestingUITests/Info.plist;
                                 PRODUCT_BUNDLE_IDENTIFIER = io.cordova.uitestingUITests;
                                 TEST_TARGET_NAME = ${PRODUCT_NAME};
                         };
 `;
-                        /*buildSettings = {
-                               INFOPLIST_FILE = uitestingUITests/Info.plist;
-                                        "\"$(SRCROOT)/$(TARGET_NAME)/Plugins/cordova-plugin-iosrtc\"",
-                                SWIFT_OBJC_BRIDGING_HEADER = "helloworld/Plugins/cordova-plugin-iosrtc/cordova-plugin-iosrtc-Bridging-Header.h";
-                               LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-                               PRODUCT_BUNDLE_IDENTIFIER = io.cordova.uitestingUITests;
-                               PRODUCT_NAME = "$(TARGET_NAME)";
-                               TEST_TARGET_NAME = ${PRODUCT_NAME};
-                        };*/
 	var objects = `
                 CE9F4EC2233C56BF00268AAD /* uitestingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F4EC1233C56BF00268AAD /* uitestingUITests.m */; };
                 CE9F4EC4233C56BF00268AAD /* PBXContainerItemProxy */ = {
