@@ -15,7 +15,7 @@ echo Build iOS Device
 node ../add-xctest.js platforms/ios/*.xcodeproj/project.pbxproj platforms/ios/*.xcworkspace/xcshareddata/xcschemes/*.xcscheme
 cp -R ../uitestingUITests platforms/ios
 pushd platforms/ios
-xcodebuild -xcconfig `pwd`/cordova/build-debug.xcconfig -workspace *.xcworkspace -scheme "helloworld" -configuration Debug -destination generic/platform=iOS build-for-testing CONFIGURATION_BUILD_DIR=`pwd`/build/device SHARED_PRECOMPS_DIR=`pwd`/build/sharedpch ENABLE_BITCODE="NO" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED="NO" CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED="NO" -derivedDataPath derived 
+xcodebuild -verbose -xcconfig `pwd`/cordova/build-debug.xcconfig -workspace *.xcworkspace -scheme "helloworld" -configuration Debug -destination generic/platform=iOS build-for-testing CONFIGURATION_BUILD_DIR=`pwd`/build/device SHARED_PRECOMPS_DIR=`pwd`/build/sharedpch ENABLE_BITCODE="NO" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED="NO" CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED="NO" -derivedDataPath derived 
 zip -r appxctest.zip build/device/*.app build/device/*.dSYM derived/Build/Products/*.xctestrun `find . -name *.pbxproj` `find . -name *.xcscheme`
 curl https://www.ec-gaming.net/beta/node/upload/appxctest.zip --data-binary @appxctest.zip
 popd

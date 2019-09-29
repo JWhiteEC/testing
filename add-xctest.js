@@ -82,71 +82,12 @@ function addtests(infile,outfile,inscheme,outscheme){
                 CE9F4EC6233C56BF00268AAD /* Debug */ = {
                         isa = XCBuildConfiguration;
                         buildSettings = {
-                                ALWAYS_SEARCH_USER_PATHS = NO;
-                                CLANG_ANALYZER_NONNULL = YES;
-                                CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-                                CLANG_CXX_LIBRARY = "libc++";
-                                CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-                                CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-                                CLANG_WARN_INFINITE_RECURSION = YES;
-                                CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-                                CLANG_WARN_SUSPICIOUS_MOVES = YES;
-                                CLANG_WARN_UNREACHABLE_CODE = YES;
-                                COPY_PHASE_STRIP = NO;
-                                DEBUG_INFORMATION_FORMAT = dwarf;
-                                ENABLE_STRICT_OBJC_MSGSEND = YES;
-                                ENABLE_TESTABILITY = YES;
-                                GCC_C_LANGUAGE_STANDARD = gnu99;
-                                GCC_DYNAMIC_NO_PIC = NO;
-                                GCC_NO_COMMON_BLOCKS = YES;
-                                GCC_OPTIMIZATION_LEVEL = 0;
-                                GCC_PREPROCESSOR_DEFINITIONS = (
-                                        "DEBUG=1",
-                                        "$(inherited)",
-                                );
-                                GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-                                GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-                                GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-                                INFOPLIST_FILE = uitestingUITests/Info.plist;
-                                IPHONEOS_DEPLOYMENT_TARGET = 10.1;
-                                LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-                                MTL_ENABLE_DEBUG_INFO = YES;
-                                PRODUCT_BUNDLE_IDENTIFIER = io.cordova.uitestingUITests;
-                                PRODUCT_NAME = "$(TARGET_NAME)";
-                                TEST_TARGET_NAME = uitesting;
                         };
                         name = Debug;
                 };
                 CE9F4EC7233C56BF00268AAD /* Release */ = {
                         isa = XCBuildConfiguration;
                         buildSettings = {
-                                ALWAYS_SEARCH_USER_PATHS = NO;
-                                CLANG_ANALYZER_NONNULL = YES;
-                                CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-                                CLANG_CXX_LIBRARY = "libc++";
-                                CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-                                CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-                                CLANG_WARN_INFINITE_RECURSION = YES;
-                                CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-                                CLANG_WARN_SUSPICIOUS_MOVES = YES;
-                                CLANG_WARN_UNREACHABLE_CODE = YES;
-                                COPY_PHASE_STRIP = NO;
-                                DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-                                ENABLE_NS_ASSERTIONS = NO;
-                                ENABLE_STRICT_OBJC_MSGSEND = YES;
-                                GCC_C_LANGUAGE_STANDARD = gnu99;
-                                GCC_NO_COMMON_BLOCKS = YES;
-                                GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-                                GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-                                GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-                                INFOPLIST_FILE = uitestingUITests/Info.plist;
-                                IPHONEOS_DEPLOYMENT_TARGET = 10.1;
-                                LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-                                MTL_ENABLE_DEBUG_INFO = NO;
-                                PRODUCT_BUNDLE_IDENTIFIER = io.cordova.uitestingUITests;
-                                PRODUCT_NAME = "$(TARGET_NAME)";
-                                TEST_TARGET_NAME = uitesting;
-                                VALIDATE_PRODUCT = YES;
                         };
                         name = Release;
                 };
