@@ -13,6 +13,13 @@ function addtests(infile,outfile,inscheme,outscheme){
 		PRODUCT_NAME=PRODUCT_NAME.substr(1,PRODUCT_NAME.length-2);
 
 	console.log('Root',ROOT_ID,'Target',TARGET_ID,'Product',PRODUCT_REF,'Name',PRODUCT_NAME);
+	var BUILD = `
+                               INFOPLIST_FILE = uitestingUITests/Info.plist;
+                               LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+                               PRODUCT_BUNDLE_IDENTIFIER = io.cordova.uitestingUITests;
+                               PRODUCT_NAME = "$(TARGET_NAME)";
+                               TEST_TARGET_NAME = ${PRODUCT_NAME};
+`;
 	var objects = `
                 CE9F4EC2233C56BF00268AAD /* uitestingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F4EC1233C56BF00268AAD /* uitestingUITests.m */; };
                 CE9F4EC4233C56BF00268AAD /* PBXContainerItemProxy */ = {
@@ -82,12 +89,14 @@ function addtests(infile,outfile,inscheme,outscheme){
                 CE9F4EC6233C56BF00268AAD /* Debug */ = {
                         isa = XCBuildConfiguration;
                         buildSettings = {
+${BUILD}
                         };
                         name = Debug;
                 };
                 CE9F4EC7233C56BF00268AAD /* Release */ = {
                         isa = XCBuildConfiguration;
                         buildSettings = {
+${BUILD}
                         };
                         name = Release;
                 };
