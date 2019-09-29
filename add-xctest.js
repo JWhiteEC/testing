@@ -12,6 +12,7 @@ function addtests(infile,outfile,inscheme,outscheme){
 	DEBUG_BASE = pbx.match(/baseConfigurationReference = ([0-9A-F]*)/)[1];
 	if (PRODUCT_NAME.startsWith('"'))
 		PRODUCT_NAME=PRODUCT_NAME.substr(1,PRODUCT_NAME.length-2);
+	REMOTE_INFO = 'uitesting';	
 
 	console.log('Root',ROOT_ID,'Target',TARGET_ID,'Product',PRODUCT_REF,'Name',PRODUCT_NAME,'Debug',DEBUG_BASE);
 	var BUILD = `
@@ -29,7 +30,7 @@ function addtests(infile,outfile,inscheme,outscheme){
                         containerPortal = ${ROOT_ID} /* Project object */;
                         proxyType = 1;
                         remoteGlobalIDString = ${TARGET_ID};
-                        remoteInfo = uitesting;
+                        remoteInfo = ${REMOTE_INFO};
                 };
                 CE9F4EBF233C56BF00268AAD /* uitestingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = uitestingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
                 CE9F4EC1233C56BF00268AAD /* uitestingUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = uitestingUITests.m; sourceTree = "<group>"; };
