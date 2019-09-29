@@ -14,14 +14,9 @@
     <preference name="deployment-target" 		value="10.2" />
     <preference name="HideKeyboardFormAccessoryBar"	value="true" />
     <preference name="KeyboardShrinksView" 		value="true" />
-    <plugin name="cordova-plugin-iosrtc" spec="https://github.com/BasqueVoIPMafia/cordova-plugin-iosrtc#task/libwebrtc-update" />
     <plugin name="cordova-plugin-wkwebview-engine" />
     <plugin name="cordova-plugin-keyboard" />
-    <plugin name="cordova-plugin-customurlscheme">
-        <variable name="URL_SCHEME" value="helloworld" />
-    </plugin>
     <plugin name="cordova-plugin-statusbar" />
-    <plugin name="phonegap-plugin-push" />
     <splash src="www/res/Default@2x~universal~anyany.png" />
     <access origin="*" />
     <allow-intent href="helloworld://*" />
