@@ -7,8 +7,10 @@ function addtests(infile,outfile,inscheme,outscheme){
 	var ROOT_ID,TARGET_ID;
 	ROOT_ID = pbx.match(/rootObject = ([0-9A-F]*)/)[1];
 	TARGET_ID = pbx.match(/targets = \([ \t\r\n]*([0-9A-F]*)/)[1];
-	PRODUCT_NAME = pbx.match(/productName = "(.*)"/)[1];
 	PRODUCT_REF = pbx.match(/productReference = [ \t\r\n]*([0-9A-F]*)/)[1];
+	PRODUCT_NAME = pbx.match(/productName = ([^;]*)/)[1];
+	if (PRODUCT_NAME.startsWith('"'))
+		PRODUCT_NAME=PRODUCT_NAME.substr(1,PRODUCT_NAME.length-2);
 
 	console.log('Root',ROOT_ID,'Target',TARGET_ID,'Product',PRODUCT_REF,'Name',PRODUCT_NAME);
 	var objects = `
