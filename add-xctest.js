@@ -121,13 +121,23 @@ ${BUILD}
 	pbx=pbx.replace(R,function(a){return a+`
                                 CE9F4EBF233C56BF00268AAD /* uitestingUITests.xctest */,
                                 CE9F4EC0233C56BF00268AAD /* uitestingUITests */,`;});
+	if(pbx.match(/isa = PBXProject;[\s]*attributes[\s]*=[\s*]{[^}]*}/)[0].indexOf('TargetAttributes')>-1)
+	pbx=pbx.replace(/isa = PBXProject;[\s]*attributes[\s]*=[\s*]{[^}]*}/,function(a){
+		return a+`;
+                                        CE9F4EBE233C56BF00268AAD = {
+                                                CreatedOnToolsVersion = 8.1;
+                                                ProvisioningStyle = Automatic;
+                                                TestTargetID = ${TARGET_ID};
+                                        }`
+		});
+	else
 	pbx=pbx.replace(/isa = PBXProject;[\s]*attributes = \{/,function(a){
 		return a+`
                                 TargetAttributes = {
                                         CE9F4EBE233C56BF00268AAD = {
                                                 CreatedOnToolsVersion = 8.1;
                                                 ProvisioningStyle = Automatic;
-                                                TestTargetID = 1D6058900D05DD3D006BFB54;
+                                                TestTargetID = ${TARGET_ID};
                                         };
                                 };`
 		});

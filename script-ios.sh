@@ -12,6 +12,8 @@ cordova platform add ios@latest
 #echo Build iOS Emulator
 #cordova build ios --emulator --verbose --buildFlag='BUILD_ACTIVE_RESOURCES_ONLY=NO' --buildFlag='ENABLE_ONLY_ACTIVE_RESOURCES=NO'
 echo Build iOS Device
+cp platforms/ios/*.xcodeproj/project.pbxproj platforms/ios/backup.pbx
+cp platforms/ios/*.xcworkspace/xcshareddata/xcschemes/*.xcscheme platforms/ios/backup.scheme
 node ../add-xctest.js platforms/ios/*.xcodeproj/project.pbxproj platforms/ios/*.xcworkspace/xcshareddata/xcschemes/*.xcscheme
 cp -R ../uitestingUITests platforms/ios
 pushd platforms/ios
