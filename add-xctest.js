@@ -17,6 +17,13 @@ function addtests(infile,outfile,inscheme,outscheme){
 	console.log('Root',ROOT_ID,'Target',TARGET_ID,'Product',PRODUCT_REF,'Name',PRODUCT_NAME,'Debug',DEBUG_BASE);
 	var BUILD = `
                         buildSettings = {
+                                ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+                                LD_RUNPATH_SEARCH_PATHS = (
+                                        "$(inherited)",
+                                        "@executable_path/Frameworks",
+                                        "@loader_path/Frameworks",
+                                );
+                                TARGETED_DEVICE_FAMILY = "1,2";
                                 PRODUCT_NAME = "$(TARGET_NAME)";
                                 INFOPLIST_FILE = uitestingUITests/Info.plist;
                                 PRODUCT_BUNDLE_IDENTIFIER = io.cordova.uitestingUITests;
