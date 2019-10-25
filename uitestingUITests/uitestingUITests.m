@@ -13,6 +13,17 @@
 @end
 
 @implementation uitestingUITests
+XCUIApplication *springboard, *app;
+
+
+-(int)waitForElement:(XCUIElement *)element withTimeout:(NSTimeInterval)timeout {
+    NSTimeInterval s = [NSDate timeIntervalSinceReferenceDate];
+    while (!element.exists) {
+        if ([NSDate timeIntervalSinceReferenceDate] - s > timeout) return 0;
+        CFRunLoopRunInMode(kCFRunLoopDefaultMode, 0.25, false);
+    }
+    return 1;
+}
 
 - (void)setUp {
     [super setUp];
@@ -21,12 +32,8 @@
     
     // In UI tests it is usually best to stop immediately when a failure occurs.
     self.continueAfterFailure = NO;
-    // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-    XCUIApplication *app = [[XCUIApplication alloc] init];
-    
-    // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
 
-    //system camera alert for permission
+    app = [[XCUIApplication alloc] init];
     NSLog(@"Setup system alert monitor");
     id systemAlertMonitor = [self addUIInterruptionMonitorWithDescription:@"Alert Handler" handler:^BOOL(XCUIElement * _Nonnull interruptingElement) {
         NSLog(@"Got system alert");
@@ -42,8 +49,9 @@
         }
         return NO;
     }];
-    app.launch();
-    app.tap();
+    [app launch];
+    [app swipeLeft];
+    [app swipeRight];
 }
 
 - (void)tearDown {
@@ -52,9 +60,17 @@
 }
 
 - (void)testExample {
-    // Use recording to get started writing UI tests.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
-	sleep(30);
+    for (int i=0; i<60; i++){
+        NSLog(@"Test index %d", i);
+        XCUIElement *ok = app.buttons[@"OK"];
+        if([self waitForElement:ok withTimeout:1.0f])
+                [ok tap];
+        else if((i%10)==9)
+                [app swipeLeft];
+        else if((i%10)==5)
+                [app swipeRight];
+    }
+    [app terminate];
 }
 
 @end

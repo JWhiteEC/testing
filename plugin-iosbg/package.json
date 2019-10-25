@@ -1,0 +1,10 @@
+{
+  "name": "iosbg",
+  "version": "1.0.0",
+  "cordova": {
+    "id": "iosbg",
+    "platforms": [
+      "ios"
+    ]
+  }
+}

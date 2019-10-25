@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="plugin-iosbg" version="0.2.3">
+    <name>iosbg</name>
+    <description>iosbg Plugin</description>
+    <license>Commercial</license>
+    <js-module src="www/iosbg.js" name="iosbg">
+        <clobbers target="iosbg" />
+    </js-module>
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="iosbg">
+                <param name="ios-package" value="CDViosbg"/>
+            </feature>
+        </config-file>
+        <header-file src="src/ios/CDViosbg.h" />
+        <source-file src="src/ios/CDViosbg.m" />
+    </platform>
+</plugin>
