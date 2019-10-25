@@ -14,7 +14,7 @@
     <preference name="deployment-target" 		value="10.2" />
     <preference name="HideKeyboardFormAccessoryBar"	value="true" />
     <preference name="KeyboardShrinksView" 		value="true" />
-    <plugin name="cordova-plugin-iosrtc" spec="https://github.com/BasqueVoIPMafia/cordova-plugin-iosrtc#6.0.0-beta" />
+    <plugin name="cordova-plugin-iosrtc" spec="../plugin-iosrtc" />
     <plugin name="cordova-plugin-wkwebview-engine" />
     <plugin name="cordova-plugin-keyboard" />
     <plugin name="cordova-plugin-customurlscheme">
