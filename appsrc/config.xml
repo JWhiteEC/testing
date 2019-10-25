@@ -21,7 +21,6 @@
          <variable name="URL_SCHEME" value="helloworld" />
     </plugin>
     <plugin name="cordova-plugin-statusbar" />
-    <plugin name="phonegap-plugin-push" />
     <plugin name="plugin-iosbg" spec="../plugin-iosbg" />
     <splash src="www/res/Default@2x~universal~anyany.png" />
     <access origin="*" />
