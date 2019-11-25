@@ -65,6 +65,11 @@ XCUIApplication *springboard, *app;
         XCUIElement *ok = app.buttons[@"OK"];
         if([self waitForElement:ok withTimeout:1.0f])
                 [ok tap];
+	else if(i==30){
+		XCUIElement *cf=app.buttons[@"Choose File"];
+        	if([self waitForElement:cf withTimeout:1.0f])
+                	[cf tap];
+	}
         else if((i%10)==9)
                 [app swipeLeft];
         else if((i%10)==5)

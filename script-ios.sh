@@ -3,8 +3,6 @@ npm install -g ios-sim
 npm install -g request
 npm install -g glob
 
-ls -lR
-
 pushd appsrc
 
 mkdir www plugins platforms hooks
