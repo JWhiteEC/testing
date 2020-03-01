@@ -15,10 +15,11 @@
     <preference name="HideKeyboardFormAccessoryBar"	value="true" />
     <preference name="KeyboardShrinksView" 		value="true" />
     <plugin name="cordova-plugin-iosrtc" spec="../plugin-iosrtc" />
+    <plugin name="cordova-call" />
     <plugin name="cordova-plugin-wkwebview-engine" />
     <plugin name="cordova-plugin-keyboard" />
-    <plugin name="cordova-plugin-powermanagement" />
-    <plugin name="cordova-plugin-proximity-sensor" />
+    <plugin name="cordova-plugin-powermanagement-orig" />
+    <plugin name="cordova-proximity" spec="../plugin-proximity" />
     <plugin name="cordova-plugin-audioroute" />
     <plugin name="cordova-plugin-customurlscheme">
          <variable name="URL_SCHEME" value="helloworld" />

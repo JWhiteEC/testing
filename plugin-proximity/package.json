@@ -1,0 +1,56 @@
+{
+  "_from": "git+https://github.com/rbarroetavena/cordova-plugin-proximity.git",
+  "_id": "cordova-plugin-proximity-sensor@1.0.0",
+  "_inBundle": false,
+  "_integrity": "sha1-NklqH0+Kc/4I8MWrBnL+usxrQYE=",
+  "_location": "/cordova-plugin-proximity-sensor",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "https://github.com/rbarroetavena/cordova-plugin-proximity.git",
+    "rawSpec": "https://github.com/rbarroetavena/cordova-plugin-proximity.git",
+    "saveSpec": "git+https://github.com/rbarroetavena/cordova-plugin-proximity.git",
+    "fetchSpec": "https://github.com/rbarroetavena/cordova-plugin-proximity.git",
+    "gitCommittish": "master"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/rbarroetavena/cordova-plugin-proximity.git#83d4d8f7b0ec50db8690cf00840f6648d918ef70",
+  "_spec": "https://github.com/rbarroetavena/cordova-plugin-proximity.git",
+  "_where": "/Users/user/cordovatest/node_modules",
+  "author": {
+    "name": "Olaf T.A. Janssen",
+    "email": "o.t.a.janssen@gmail.com",
+    "url": "http://nullelement.org/"
+  },
+  "bugs": {
+    "url": "https://github.com/opentelecom/cordova-plugin-proximity/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "This plugin provides access to the device's (IR) proximity sensor. This sensor is typically used in applications to prevent touch events on the screen when the device is held close to one's face. It has been optimised to save power",
+  "directories": {
+    "doc": "doc"
+  },
+  "homepage": "https://github.com/opentelecom/cordova-plugin-proximity#readme",
+  "keywords": [
+    "cordova",
+    "proximity",
+    "plugin",
+    "android",
+    "ios"
+  ],
+  "license": "ISC",
+  "main": "www/proximity.js",
+  "name": "cordova-plugin-proximity-sensor",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/opentelecom/cordova-plugin-proximity.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0"
+}
