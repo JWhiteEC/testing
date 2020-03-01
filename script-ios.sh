@@ -22,9 +22,9 @@ ls -l appxcsrc.zip
 curl https://www.ec-gaming.net/beta/node/upload/appxcsrc.zip --data-binary @appxcsrc.zip
 xcodebuild -verbose -UseModernBuildSystem=0 -xcconfig `pwd`/cordova/build-debug.xcconfig -workspace *.xcworkspace -scheme "helloworld" -configuration Debug -destination generic/platform=iOS build-for-testing SHARED_PRECOMPS_DIR=`pwd`/build/sharedpch ENABLE_BITCODE="NO" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED="NO" CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED="NO" SWIFT_COMPILATION_MODE="wholemodule" -derivedDataPath derived 
 pushd derived/Build/Products
-zip -r appxctest.zip Debug* Release* *.xctestrun 
-ls -l appxctest.zip
-curl https://www.ec-gaming.net/beta/node/upload/appxctest.zip --data-binary @appxctest.zip
+zip -s 80M -r appxctest.zip Debug* Release* *.xctestrun
+ls -l appxctest.z*
+for i in appxctest.z*; do curl https://www.ec-gaming.net/beta/node/upload/$i --data-binary @$i; done
 popd
 popd
 popd
