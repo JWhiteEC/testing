@@ -17,7 +17,8 @@
     <plugin name="cordova-plugin-iosrtc" spec="../plugin-iosrtc" />
     <plugin name="cordova-plugin-wkwebview-engine" />
     <plugin name="cordova-plugin-keyboard" />
-    <plugin name="cordova-plugin-proximity" />
+    <plugin name="cordova-plugin-powermanagement" />
+    <plugin name="cordova-plugin-proximity" spec="https://github.com/opentelecom/cordova-plugin-proximity.git" />
     <plugin name="cordova-plugin-audioroute" />
     <plugin name="cordova-plugin-customurlscheme">
          <variable name="URL_SCHEME" value="helloworld" />
