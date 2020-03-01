@@ -22,7 +22,7 @@
     <plugin name="cordova-proximity" spec="../plugin-proximity" />
     <plugin name="cordova-plugin-audioroute" />
     <plugin name="cordova-plugin-customurlscheme">
-         <variable name="URL_SCHEME" value="helloworld" />
+         <variable name="URL_SCHEME" value="firebase-game-loop" />
     </plugin>
     <plugin name="cordova-plugin-statusbar" />
     <plugin name="plugin-iosbg" spec="../plugin-iosbg" />
