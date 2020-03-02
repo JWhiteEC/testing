@@ -15,7 +15,6 @@
     <preference name="HideKeyboardFormAccessoryBar"	value="true" />
     <preference name="KeyboardShrinksView" 		value="true" />
     <plugin name="cordova-plugin-iosrtc" spec="../plugin-iosrtc" />
-    <plugin name="cordova-call" />
     <plugin name="cordova-plugin-wkwebview-engine" />
     <plugin name="cordova-plugin-keyboard" />
     <plugin name="cordova-powermanagement" spec="../plugin-powermanagement" />
