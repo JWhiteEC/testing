@@ -7,6 +7,18 @@
 
 static UIView * view = nil;
 
+- (void)wvupdate:(CDVInvokedUrlCommand*)command
+{
+    CDVPluginResult* pluginResult = nil;
+    int webhidden = [[command.arguments objectAtIndex:0] intValue];
+    int viewhidden = [[command.arguments objectAtIndex:1] intValue];
+    self.webView.hidden = webhidden ? YES:NO;
+    if(view) view.hidden = viewhidden ? YES:NO;
+	NSLog(@"wvupdate %d %d %d", webhidden, viewhidden, view?1:0);
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"OK"];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
 - (void)update:(CDVInvokedUrlCommand*)command
 {
     CDVPluginResult* pluginResult = nil;
