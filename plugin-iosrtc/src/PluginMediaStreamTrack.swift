@@ -1,33 +1,42 @@
 import Foundation
 
 
-class PluginMediaStreamTrack : NSObject, RTCMediaStreamTrackDelegate {
+class PluginMediaStreamTrack : NSObject {
 	var rtcMediaStreamTrack: RTCMediaStreamTrack
+	var streamId: String
 	var id: String
 	var kind: String
 	var eventListener: ((_ data: NSDictionary) -> Void)?
 	var eventListenerForEnded: (() -> Void)?
 	var lostStates = Array<String>()
+	var renders: [String : PluginMediaStreamRenderer]
 
-
-	init(rtcMediaStreamTrack: RTCMediaStreamTrack) {
+	init(rtcMediaStreamTrack: RTCMediaStreamTrack, streamId: String) {
 		NSLog("PluginMediaStreamTrack#init()")
 
 		self.rtcMediaStreamTrack = rtcMediaStreamTrack
-		self.id = rtcMediaStreamTrack.trackId
-		self.kind = rtcMediaStreamTrack.kind
-	}
 
+		// Handle possible duplicate remote trackId with janus name
+		// See: https://github.com/cordova-rtc/cordova-plugin-iosrtc/issues/432
+		if (rtcMediaStreamTrack.trackId.starts(with: "janus")) {
+			self.id = rtcMediaStreamTrack.trackId + "_" + UUID().uuidString;
+		} else {
+			self.id = rtcMediaStreamTrack.trackId;
+		}
+
+		self.kind = rtcMediaStreamTrack.kind
+		self.renders = [:]
+		self.streamId = streamId;
+	}
 
 	deinit {
 		NSLog("PluginMediaStreamTrack#deinit()")
 	}
 
-
 	func run() {
 		NSLog("PluginMediaStreamTrack#run() [kind:%@, id:%@]", String(self.kind), String(self.id))
 	}
-	
+
 	func getReadyState() -> String {
 		switch self.rtcMediaStreamTrack.readyState  {
 		case RTCMediaStreamTrackState.live:
@@ -37,7 +46,6 @@ class PluginMediaStreamTrack : NSObject, RTCMediaStreamTrackDelegate {
 		default:
 			return "ended"
 		}
-		return "ended"
 	}
 
 	func getJSON() -> NSDictionary {
@@ -49,7 +57,6 @@ class PluginMediaStreamTrack : NSObject, RTCMediaStreamTrackDelegate {
 			"readyState": self.getReadyState()
 		]
 	}
-
 
 	func setListener(
 		_ eventListener: @escaping (_ data: NSDictionary) -> Void,
@@ -76,53 +83,47 @@ class PluginMediaStreamTrack : NSObject, RTCMediaStreamTrackDelegate {
 		self.lostStates.removeAll()
 	}
 
-
 	func setEnabled(_ value: Bool) {
 		NSLog("PluginMediaStreamTrack#setEnabled() [kind:%@, id:%@, value:%@]",
 			String(self.kind), String(self.id), String(value))
 
-		self.rtcMediaStreamTrack.isEnabled = value
+		if (self.rtcMediaStreamTrack.isEnabled != value) {
+			self.rtcMediaStreamTrack.isEnabled = value
+			if (value) {
+				self.rtcMediaStreamTrack.videoCaptureController?.startCapture()
+			}else {
+				self.rtcMediaStreamTrack.videoCaptureController?.stopCapture()
+			}
+		}
 	}
 
+	func switchCamera() {
+		self.rtcMediaStreamTrack.videoCaptureController?.switchCamera()
+	}
 
-	// TODO: No way to stop the track.
-	// Check https://github.com/cordova-rtc/cordova-plugin-iosrtc/issues/140
+	func registerRender(render: PluginMediaStreamRenderer) {
+		if let exist = self.renders[render.id] {
+			_ = exist
+		} else {
+			self.renders[render.id] = render
+		}
+	}
+
+	func unregisterRender(render: PluginMediaStreamRenderer) {
+		self.renders.removeValue(forKey: render.id);
+	}
+
 	func stop() {
 		NSLog("PluginMediaStreamTrack#stop() [kind:%@, id:%@]", String(self.kind), String(self.id))
 
-		NSLog("PluginMediaStreamTrack#stop() | stop() not implemented (see: https://github.com/cordova-rtc/cordova-plugin-iosrtc/issues/140")
+		self.rtcMediaStreamTrack.videoCaptureController?.stopCapture();
 
 		// Let's try setEnabled(false), but it also fails.
 		self.rtcMediaStreamTrack.isEnabled = false
-	}
 
-
-	/**
-	 * Methods inherited from RTCMediaStreamTrackDelegate.
-	 */
-
-
-	func mediaStreamTrackDidChange(_ rtcMediaStreamTrack: RTCMediaStreamTrack) {
-		let state_str = self.getReadyState()
-
-		NSLog("PluginMediaStreamTrack | state changed [kind:%@, id:%@, state:%@, enabled:%@]",
-			String(self.kind), String(self.id), String(describing: state_str), String(self.rtcMediaStreamTrack.isEnabled))
-
-		if self.eventListener != nil {
-			self.eventListener!([
-				"type": "statechange",
-				"readyState": state_str,
-				"enabled": self.rtcMediaStreamTrack.isEnabled ? true : false
-			])
-
-			if self.rtcMediaStreamTrack.readyState.rawValue == RTCMediaStreamTrackState.ended.rawValue {
-				if self.eventListenerForEnded != nil {
-					self.eventListenerForEnded!()
-				}
-			}
-		} else {
-			// It may happen that the eventListener is not yet set, so store the lost states.
-			self.lostStates.append(state_str)
+		for (_, render) in self.renders {
+			render.stop()
 		}
+		self.renders.removeAll();
 	}
 }

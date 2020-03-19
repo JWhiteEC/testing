@@ -1,14 +1,15 @@
 import Foundation
+
 // FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
 // Consider refactoring the code to use the non-optional operators.
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):
-    return l < r
+	return l < r
   case (nil, _?):
-    return true
+	return true
   default:
-    return false
+	return false
   }
 }
 
@@ -17,13 +18,11 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):
-    return l > r
+	return l > r
   default:
-    return rhs < lhs
+	return rhs < lhs
   }
 }
-
-
 
 class PluginRTCDataChannel : NSObject, RTCDataChannelDelegate {
 	var rtcDataChannel: RTCDataChannel?
@@ -31,7 +30,6 @@ class PluginRTCDataChannel : NSObject, RTCDataChannelDelegate {
 	var eventListenerForBinaryMessage: ((_ data: Data) -> Void)?
 	var lostStates = Array<String>()
 	var lostMessages = Array<RTCDataBuffer>()
-
 
 	/**
 	 * Constructor for pc.createDataChannel().
@@ -97,19 +95,15 @@ class PluginRTCDataChannel : NSObject, RTCDataChannelDelegate {
 				"protocol": self.rtcDataChannel!.`protocol`,
 				"negotiated": self.rtcDataChannel!.isNegotiated,
 				"id": self.rtcDataChannel!.channelId,
-				//"readyState": self.rtcDataChannel!.readyState,
-				//"readyState": PluginRTCTypes.dataChannelStates[self.rtcDataChannel!.readyState.rawValue] as String!,
 				"readyState": PluginRTCDataChannel.stateToString(state: self.rtcDataChannel!.readyState),
 				"bufferedAmount": self.rtcDataChannel!.bufferedAmount
 			]
 		])
 	}
 
-
 	deinit {
 		NSLog("PluginRTCDataChannel#deinit()")
 	}
-
 
 	/**
 	 * Constructor for pc.ondatachannel event.
@@ -119,7 +113,6 @@ class PluginRTCDataChannel : NSObject, RTCDataChannelDelegate {
 
 		self.rtcDataChannel = rtcDataChannel
 	}
-
 
 	func run() {
 		NSLog("PluginRTCDataChannel#run()")
@@ -132,7 +125,6 @@ class PluginRTCDataChannel : NSObject, RTCDataChannelDelegate {
 			dataChannelDidChangeState(self.rtcDataChannel!);
 		}
 	}
-
 
 	func setListener(
 		_ eventListener: @escaping (_ data: NSDictionary) -> Void,
@@ -157,7 +149,6 @@ class PluginRTCDataChannel : NSObject, RTCDataChannelDelegate {
 		self.lostMessages.removeAll()
 	}
 
-
 	func sendString(
 		_ data: String,
 		callback: (_ data: NSDictionary) -> Void
@@ -174,7 +165,6 @@ class PluginRTCDataChannel : NSObject, RTCDataChannelDelegate {
 			NSLog("PluginRTCDataChannel#sendString() | RTCDataChannel#sendData() failed")
 		}
 	}
-
 
 	func sendBinary(
 		_ data: Data,
@@ -193,13 +183,12 @@ class PluginRTCDataChannel : NSObject, RTCDataChannelDelegate {
 		}
 	}
 
-
 	func close() {
 		NSLog("PluginRTCDataChannel#close()")
 
 		self.rtcDataChannel!.close()
 	}
-    
+	
 	static func stateToString(state: RTCDataChannelState) -> String {
 		switch state {
 		case RTCDataChannelState.connecting:
@@ -274,14 +263,14 @@ class PluginRTCDataChannel : NSObject, RTCDataChannelDelegate {
 
 	func emitReceivedMessage(_ buffer: RTCDataBuffer) {
 		if !buffer.isBinary {
-			let string = NSString(
+			let message = NSString(
 				data: buffer.data,
 				encoding: String.Encoding.utf8.rawValue
 			)
 
 			self.eventListener!([
 				"type": "message",
-				"message": string as! String
+				"message": message! as String
 			])
 		} else {
 			self.eventListenerForBinaryMessage!(buffer.data)

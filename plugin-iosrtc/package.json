@@ -1,23 +1,55 @@
 {
-  "name": "cordova-plugin-iosrtc",
-  "version": "5.0.0",
-  "description": "Cordova iOS plugin exposing the full WebRTC W3C JavaScript APIs",
-  "author": "Iñaki Baz Castillo (https://inakibaz.me)",
+  "_from": "cordova-plugin-iosrtc",
+  "_id": "cordova-plugin-iosrtc@6.0.9",
+  "_inBundle": false,
+  "_integrity": "sha512-gbUMabV8SsXJwD9ej5oS5LZA1YJ4nF5OMF1nJiWBpbzn/7pMHV9jFSUT0bstHVV/efjY7Od5tdxhRWhXzuM7fA==",
+  "_location": "/cordova-plugin-iosrtc",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-iosrtc",
+    "name": "cordova-plugin-iosrtc",
+    "escapedName": "cordova-plugin-iosrtc",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-iosrtc/-/cordova-plugin-iosrtc-6.0.9.tgz",
+  "_shasum": "5bde985e8b7b678306456ed072ac49e609e61d89",
+  "_spec": "cordova-plugin-iosrtc",
+  "_where": "/Users/user/making-xctest-project/xctesttest",
+  "author": {
+    "name": "Iñaki Baz Castillo",
+    "url": "https://inakibaz.me"
+  },
+  "bugs": {
+    "url": "https://github.com/cordova-rtc/cordova-plugin-iosrtc/issues"
+  },
+  "bundleDependencies": false,
   "contributors": [
-    "Saúl Ibarra Corretgé (http://bettercallsaghul.com)",
-    "Iñaki Baz Castillo (https://inakibaz.me)",
-    "Harold Thetiot (https://sylaps.com)"
+    {
+      "name": "Saúl Ibarra Corretgé",
+      "url": "http://bettercallsaghul.com"
+    },
+    {
+      "name": "Iñaki Baz Castillo",
+      "url": "https://inakibaz.me"
+    },
+    {
+      "name": "Harold Thetiot",
+      "url": "https://sylaps.com"
+    }
   ],
-  "license": "MIT",
-  "keywords": [
-    "ecosystem:cordova",
-    "webrtc",
-    "ios"
-  ],
-  "main": "js/iosrtc.js",
-  "scripts": {
-    "lint": "gulp lint",
-    "build": "gulp browserify"
+  "cordova": {
+    "id": "cordova-plugin-iosrtc",
+    "platforms": [
+      "ios"
+    ]
   },
   "dependencies": {
     "debug": "^4.1.1",
@@ -27,28 +59,45 @@
     "xcode": "^2.0.0",
     "yaeti": "^1.0.2"
   },
+  "deprecated": false,
+  "description": "Cordova iOS plugin exposing the full WebRTC W3C JavaScript APIs",
   "devDependencies": {
     "browserify": "^14.4.0",
     "gulp": "^4.0.2",
     "gulp-derequire": "^2.1.0",
     "gulp-eslint": "^6.0.0",
-    "gulp-header": "^1.8.8",
+    "gulp-header": "^2.0.9",
     "gulp-jshint": "^2.0.4",
     "jshint": "^2.9.4",
     "jshint-stylish": "~2.2.1",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
   },
-  "cordova": {
-    "id": "cordova-plugin-iosrtc",
-    "platforms": [
-      "ios"
-    ]
-  },
   "engines": [
     {
       "name": "cordova-ios",
-      "version": ">=3.8.0"
+      "version": ">=5.0.1"
     }
-  ]
+  ],
+  "homepage": "https://github.com/cordova-rtc/cordova-plugin-iosrtc",
+  "keywords": [
+    "cordova",
+    "ecosystem:cordova",
+    "webrtc",
+    "ios",
+    "cordova-ios",
+    "cordova:plugin"
+  ],
+  "license": "MIT",
+  "main": "js/iosrtc.js",
+  "name": "cordova-plugin-iosrtc",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cordova-rtc/cordova-plugin-iosrtc.git"
+  },
+  "scripts": {
+    "build": "gulp browserify",
+    "lint": "gulp lint"
+  },
+  "version": "6.0.9"
 }
